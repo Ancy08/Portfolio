@@ -8,13 +8,18 @@ app.use(cors())
 app.use(express.json())
 // MongoDB Connection
 let connected = false;
-async function connectedDB(){
-    if( connected) return;
-    mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
-    connected = true;
-    console.log("MongoDB Connected ✅")
+async function connectedDB() {
+    if (connected) return;
+    try {
+        await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+        connected = true;
+        console.log("MongoDB Connected ✅");
+    }
+    catch (err) {
+        console.error("MongoDB Connection Error:", err.message);
+    }
 }
-connectDB();
+connectedDB();
 // / Define Schema
 const blogSchema = new mongoose.Schema({
     newTitle: String,

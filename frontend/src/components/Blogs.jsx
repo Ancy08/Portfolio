@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 import Footer from './common/Footer';
 import auth from '../config/firebase';
+import { API_URL } from '../config/config';
 
 function Blogs() {
 
@@ -39,7 +40,7 @@ function Blogs() {
 
             }
         })
-        axios.get("http://localhost:3000/api/blogs").then((res) => {
+        axios.get("${API_URL}/blogs").then((res) => {
             console.log(res.data)
             setBlogs(res.data)
         }).catch(() => {
@@ -52,10 +53,10 @@ function Blogs() {
 
     const handleLike = async (blog_id) => {
         try {
-            const response = await axios.patch(`http://localhost:3000/api/blogs/like/${blog_id}`);
+            const response = await axios.patch(`${API_URL}/blogs/like/${blog_id}`);
             // After successfully updating the likes count in the backend, fetch the updated list of blogs
             if (response.status === 200) {
-                axios.get("http://localhost:3000/api/blogs").then((res) => {
+                axios.get(`${API_URL}/blogs`).then((res) => {
                     console.log(res.data)
                     setBlogs(res.data)
                 }).catch(() => {

@@ -7,10 +7,14 @@ app.use(cors())
 // middleware
 app.use(express.json())
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/blogDB').then(() => {
-    console.log("Connection Successfull")
-})
-
+let connected = false;
+async function connectedDB(){
+    if( connected) return;
+    mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
+    connected = true;
+    console.log("MongoDB Connected ✅")
+}
+connectDB();
 // / Define Schema
 const blogSchema = new mongoose.Schema({
     newTitle: String,
@@ -65,4 +69,4 @@ app.post("/api/blogs", async (req, res) => {
     }
 })
 
-app.listen(3000, () => console.log("Sever connected"))
+module.exports = app;

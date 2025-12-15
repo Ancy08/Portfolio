@@ -3,7 +3,7 @@ const cors = require("cors")
 const mongoose = require('mongoose');
 
 const app = express()
-app.use(cors({ origin: "https://portfolio-six-sandy-41.vercel.app"}))
+app.use(cors())
 // middleware
 app.use(express.json())
 // MongoDB Connection

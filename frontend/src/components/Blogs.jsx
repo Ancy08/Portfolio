@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 import Footer from './common/Footer';
 import auth from '../config/firebase';
-import { API_URL } from '../config/config';
+import API_URL from '../config/config';
 
 function Blogs() {
 

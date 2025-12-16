@@ -1,1 +1,1 @@
-export const API_URL = "https://portfolio-backend.vercel.app/api";
+API_URL = "https://portfolio-six-sandy-41.vercel.app/"

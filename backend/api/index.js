@@ -7,16 +7,16 @@ app.use(cors())
 // middleware
 app.use(express.json())
 // MongoDB Connection
-let connected = false;
 async function connectedDB() {
-    if (connected) return;
-    try {
+    try{
         await mongoose.connect("mongodb+srv://maria35699_db_user:maria35699@cluster0.ggbqkiz.mongodb.net/blogDB?appName=Cluster0")
-        connected = true;
-        console.log("MongoDB Connected ✅");
+        console.log("MongoDB atlas connected successfully")
+        process.exit(0)
     }
-    catch (err) {
-        console.error("MongoDB Connection Error:", err.message);
+    catch(error){
+         console.log("MongoDB Connection failed")
+        console.log(error.message)
+        process.exit(1)
     }
 }
 connectedDB();

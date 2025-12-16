@@ -8,18 +8,22 @@ app.use(cors())
 app.use(express.json())
 // MongoDB Connection
 async function connectedDB() {
-    try{
+    try {
         await mongoose.connect("mongodb+srv://maria35699_db_user:maria35699@cluster0.ggbqkiz.mongodb.net/blogDB?appName=Cluster0")
         console.log("MongoDB atlas connected successfully")
-        process.exit(0)
     }
-    catch(error){
-         console.log("MongoDB Connection failed")
+    catch (error) {
+        console.log("MongoDB Connection failed")
         console.log(error.message)
-        process.exit(1)
     }
 }
 connectedDB();
+// test route
+app.get("/", (req, res) => {
+    res.send("Backend is running");
+});
+
+
 // / Define Schema
 const blogSchema = new mongoose.Schema({
     newTitle: String,

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express")
 const cors = require("cors")
 const mongoose = require('mongoose');
@@ -6,7 +7,7 @@ const blogRoutes = require("../routes/blogs");
 
 const app = express()
 app.use(cors({
-  origin: 'https://portfolio-mlsk.vercel.app', // your frontend URL
+  origin: 'https://portfolio-mlsk.vercel.app/', // your frontend URL
   methods: ['GET', 'POST', 'PATCH']
 }))
 // middleware
@@ -14,7 +15,7 @@ app.use(express.json())
 // MongoDB Connection
 async function connectedDB() {
     try {
-        await mongoose.connect("mongodb+srv://maria35699_db_user:maria35699@cluster0.ggbqkiz.mongodb.net/blogDB?appName=Cluster0")
+        await mongoose.connect(process.env.MONGO_URI)
         console.log("MongoDB atlas connected successfully")
     }
     catch (error) {

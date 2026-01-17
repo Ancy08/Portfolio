@@ -1,2 +1,4 @@
-const API_URL = "https://portfolio-six-sandy-41.vercel.app/api"; 
+const API_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/api";
+
 export default API_URL;

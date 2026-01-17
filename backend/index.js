@@ -4,10 +4,11 @@ const cors = require("cors")
 
 const app = express();
 app.use(cors({
-  origin: "https://portfolio-mlsk.vercel.app",
+  origin: "*",
   methods: ["GET", "POST", "PATCH", "DELETE","OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+app.options("*", cors());
 
 // Middleware
 app.use(express.json());

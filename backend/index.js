@@ -22,11 +22,24 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Define Schema
 const blogSchema = new mongoose.Schema({
-  newTitle: String,
-  newContent: String,
-  date: String,
-  likes: Number
+  newTitle: {
+    type: String,
+    required: true
+  },
+  newContent: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: String,
+    required: true
+  },
+  likes: {
+    type: Number,
+    default: 0
+  }
 });
+
 
 const Blog = mongoose.model('Blog', blogSchema);
 
@@ -62,7 +75,7 @@ app.patch('/api/blogs/like/:id', async (req, res) => {
 
 
 app.post('/api/blogs', async (req, res) => {
-
+ console.log("BLOG BODY 👉", req.body);
   const blog = new Blog({
     newTitle: req.body.newTitle,
     newContent: req.body.newContent,

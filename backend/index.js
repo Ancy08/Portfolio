@@ -1,13 +1,17 @@
 // server.js
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require("cors")
 
 const app = express();
-app.use(cors())
+app.use(cors({
+  origin: "https://portfolio-mlsk.vercel.app",
+  methods: ["GET", "POST", "PATCH", "DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection
 
@@ -91,6 +95,4 @@ app.post('/api/blogs', async (req, res) => {
   }
 });
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;

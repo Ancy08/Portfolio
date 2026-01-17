@@ -96,6 +96,4 @@ app.post('/api/blogs', async (req, res) => {
   }
 });
 
-module.exports = (req, res) => {
-  app(req, res);
-};
+module.exports = app;

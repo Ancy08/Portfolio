@@ -27,7 +27,7 @@ function Navbar() {
         <div className="py-5 flex justify-between items-center">
             <h1 className="text-2xl font-bold" >Personal</h1>
             <div className="flex items-center">
-                <Link className="list-none px-5" to={"/home"}>Home</Link>
+                <Link className="list-none px-5" to={"/"}>Home</Link>
                 <Link className="list-none px-5" to={"/blogs"}>Blogs</Link>
                 <Link className="list-none px-5" to={"/about"}>About</Link>
                 {log ? <button className="button-style hidden md:block px-5 py-2.5 rounded-md 

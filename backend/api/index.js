@@ -49,7 +49,7 @@ const blogSchema = new mongoose.Schema({
 const Blog = mongoose.model('Blog', blogSchema);
 
 // Routes
-app.get('/api/blogs', async (req, res) => {
+app.get('/blogs', async (req, res) => {
   try {
     const blogs = await Blog.find({});
     console.log(blogs)
@@ -59,7 +59,7 @@ app.get('/api/blogs', async (req, res) => {
   }
 });
 
-app.patch('/api/blogs/like/:id', async (req, res) => {
+app.patch('/blogs/like/:id', async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     if (!blog) {
@@ -79,7 +79,7 @@ app.patch('/api/blogs/like/:id', async (req, res) => {
 });
 
 
-app.post('/api/blogs', async (req, res) => {
+app.post('/blogs', async (req, res) => {
  console.log("BLOG BODY 👉", req.body);
   const blog = new Blog({
     newTitle: req.body.newTitle,

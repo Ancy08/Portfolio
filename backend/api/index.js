@@ -3,12 +3,18 @@ const express = require('express');
 const cors = require("cors")
 
 const app = express();
+const allowedOrigins = ["http://localhost:5173", "https://portfolio-mlsk.vercel.app/"];
+
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PATCH", "DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: function(origin, callback){
+    if(!origin) return callback(null, true); // allow Postman or curl
+    if(allowedOrigins.includes(origin)){
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  }
 }));
-app.options("*", cors());
 
 // Middleware
 app.use(express.json());
@@ -96,4 +102,8 @@ app.post('/blogs', async (req, res) => {
   }
 });
 
-module.exports = app;
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

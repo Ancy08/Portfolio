@@ -10,18 +10,8 @@ function Blogs() {
 
     const [blogs, setBlogs] = useState([]);
     const [admin, setAdmin] = useState(false)
-    const [expandedBlogs, setExpandedBlogs] = useState([]);
-
-
-    const toggleReadMore = (blogId) => {
-        if (expandedBlogs.includes(blogId)) {
-            setExpandedBlogs(expandedBlogs.filter(id => id !== blogId))
-        }
-        else {
-            setExpandedBlogs([...expandedBlogs, blogId])
-        }
-    }
-
+    
+    
     useEffect(() => {
         window.scrollTo(0, 0);
 

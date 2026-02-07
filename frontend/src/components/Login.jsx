@@ -36,7 +36,7 @@ function Login() {
             <form onSubmit={handleLogin} className="p-10 bg-white rounded-lg shadow-md" style={{ width: "75%" }}>
                 <h2 className="text-2xl font-bold mb-5 text-gray-800">Login</h2>
                 <div className="mb-4">
-                    <label className="block text-gray-700">Email:</label>
+                    <label className="block text-gray-700">Email-</label>
                     <input
                         type="email"
                         value={email}
@@ -46,7 +46,7 @@ function Login() {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700">Password:</label>
+                    <label className="block text-gray-700">Password-</label>
                     <input
                         type="password"
                         value={password}

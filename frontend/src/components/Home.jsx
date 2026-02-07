@@ -20,7 +20,7 @@ function Home() {
                     <h2 className="text-4xl md:text-7xl font-bold text-blue-700 py-2">Ancy Maria</h2>
                     <p className="py-2">I can create stunning websites for your company, Do check my works. I won't disappoint you. Try me for 7 Days before you decide anything</p>
                     <a
-                        href="mailto:ancy@email.com?subject=Hiring Inquiry&body=Hi Ancy,%0A%0AI came across your portfolio and would like to connect."
+                        href="mailto:ancy.codes@gmail.com?subject=Hiring Inquiry&body=Hi Ancy,%0A%0AI came across your portfolio and would like to connect."
                         className="inline-block"
                     >
                         <button className="button-style border-none font-bold shadow-lg transition-all duration-500 ease-in-out rounded-md text-white px-3 py-2 bg-[linear-gradient(to_right,#FAA116,#df7320)] hover:bg-[linear-gradient(to_right,#ff5f3e,#fb8c4f)]">

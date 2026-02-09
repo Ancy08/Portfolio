@@ -10,8 +10,22 @@ import { useNavigate } from "react-router-dom"
 import task from "../assets/task.jpg"
 import weather1 from "../assets/weather1.png"
 import movie from "../assets/movie.jpg"
+import emailjs from "@emailjs/browser"
 function Home() {
     const Navigate = useNavigate()
+    const SendMail = () => {
+        emailjs.send("service_lghqw8u", "template_euw6grn", {
+            to_name: "Ancy",
+            from_name: "Portfolio Visitor",
+            to_email: "ancy.codes@gmail.com",
+            message: "Hi Ancy, I came across your portfolio and would like to connect."
+        },
+            "ktPABdMQll0a8vSE6")
+            .then(
+                () => alert("Mail sent successfully 🚀"),
+                () => alert("Failed to send mail ❌")
+            )
+    }
     return (
         <div className="mt-4">
             <div className="flex items-center justify-center">
@@ -19,14 +33,12 @@ function Home() {
                     <h2 className="text-3xl md:text-6xl font-bold pb-2">Hey! I Am</h2>
                     <h2 className="text-4xl md:text-7xl font-bold text-blue-700 py-2">Ancy Maria</h2>
                     <p className="py-2">I can create stunning websites for your company, Do check my works. I won't disappoint you. Try me for 7 Days before you decide anything</p>
-                    <a
-                        href="mailto:ancy.codes@gmail.com?subject=Hiring Inquiry&body=Hi Ancy,%0A%0AI came across your portfolio and would like to connect."
-                        className="inline-block"
+                    <button
+                        onClick={SendMail}
+                        className="button-style border-none font-bold shadow-lg transition-all duration-500 ease-in-out rounded-md text-white px-3 py-2 bg-[linear-gradient(to_right,#FAA116,#df7320)] hover:bg-[linear-gradient(to_right,#ff5f3e,#fb8c4f)]"
                     >
-                        <button className="button-style border-none font-bold shadow-lg transition-all duration-500 ease-in-out rounded-md text-white px-3 py-2 bg-[linear-gradient(to_right,#FAA116,#df7320)] hover:bg-[linear-gradient(to_right,#ff5f3e,#fb8c4f)]">
-                            Hire me
-                        </button>
-                    </a>
+                        Hire me
+                    </button>
 
                 </div>
                 <div>

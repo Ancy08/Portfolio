@@ -68,7 +68,12 @@ function Home() {
                     <h2 className="text-3xl sm:text-7xl font-bold">My Awesome</h2>
                     <h2 className="text-3xl sm:text-7xl font-bold text-blue-700">Services</h2>
                     <p className="my-2">I have attched my Resume here for your reference </p>
-                    <button className="button-style border-none font-bold shadow-lg transition-all duration-500 ease-in-out rounded-md text-white px-3 py-2 bg-[linear-gradient(to_right,#FAA116,#df7320)] hover:bg-[linear-gradient(to_right,#ff5f3e,#fb8c4f)]">Download CV</button>
+                    <a href="/Ancy_Mern_Developer.pdf" download className="inline-block">
+                        <button className="button-style border-none font-bold shadow-lg transition-all duration-500 ease-in-out rounded-md text-white px-3 py-2 bg-[linear-gradient(to_right,#FAA116,#df7320)] hover:bg-[linear-gradient(to_right,#ff5f3e,#fb8c4f)]">
+                            Download CV
+                        </button>
+                    </a>
+
                 </div>
             </div>
             <div>
